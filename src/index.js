@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { store } from './_helpers';
+import { Provider } from 'react-redux';
+// setup fake backend
+import { configureFakeBackend } from './_helpers';
+configureFakeBackend();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Provider store={store}>
+          <App />
+      </Provider>,
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,4 +1,4 @@
-const siteUrl = 'https://api.al-tuhoo.com';
+const siteUrl = '';
 const apiUrl = siteUrl+ '/api';
 
 export const config = {

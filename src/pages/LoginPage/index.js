@@ -55,11 +55,11 @@ function LoginPage() {
                     }
                 </div>
                 <div className="form-group">
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary" id="submit-login">
                         {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Login
                     </button>
-                    <Link to="/register" className="btn btn-link">Register</Link>
+                    <Link to="/register" className="btn btn-link" id="go-register">Register</Link>
                 </div>
             </form>
         </div>

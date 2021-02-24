@@ -45,9 +45,9 @@ function AddArticlePage({ match }) {
         articleService.getById(id)
             .then(
                 item => {
-                    dispatch(articleActions.getByIdRequest(item));
+                    dispatch(articleActions.getByIdSuccess(item));
                     console.log(item);
-                    setItem(item);
+                    if(item!==undefined) setItem(item);
                 },
                 error => dispatch(articleActions.getByIdFailure(error.toString()))
             );
@@ -106,6 +106,7 @@ function AddArticlePage({ match }) {
         if (item.title && item.content && item.date && item.image &&isTypeImage && !isImageExceededSize) {
             if(isEdit) {
                 item['id'] = parseInt(id);
+                if(isNaN(item['id'])) item['id'] = 0;
                 dispatch(articleActions.updateItem(item));
             }
             else dispatch(articleActions.addItem(item));

@@ -110,14 +110,18 @@ export function configureFakeBackend() {
                 const index = articles.findIndex(x => x.id === idFromUrl());
                 if (articles.find(x => x.id === idFromUrl())) {
                     articles[index] = item;
+                    localStorage.setItem('articles', JSON.stringify(articles));
+
+                    return ok(articles);
                 }
 
+                else{
+                    return error('The article you are trying to update does not exist');
+                }
                 // assign user id and a few other properties then save
                 // item.id = articles.length ? Math.max(...articles.map(x => x.id)) + 1 : 1;
                 // articles.push(item);
-                localStorage.setItem('articles', JSON.stringify(articles));
 
-                return ok(articles);
             }
 
             function getArticles() {
